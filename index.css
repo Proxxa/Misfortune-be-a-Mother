@@ -1,4 +1,10 @@
 html {
-    background-color: black;
+    background-color: blue;
     overflow: hidden;
+}
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
 }

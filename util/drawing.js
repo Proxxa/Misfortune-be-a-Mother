@@ -19,7 +19,7 @@ const Drawing = {
 
     image_anchored: function(image, x, y, uvx, uvy, w, h) {
         let im = images[image]
-        _image(im, x - (im.width * uvx * 1.05), y - (im.height * uvy * 1.05), w ?? im.width, h ?? im.height);
+        _image(im, x - (im.width * uvx * 1), y - (im.height * uvy * 1), w ?? im.width, h ?? im.height);
     }
 };
 

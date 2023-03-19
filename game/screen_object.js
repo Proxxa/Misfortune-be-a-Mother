@@ -47,12 +47,41 @@ class Button extends ScreenObject {
     }
 }
 
+class Image extends ScreenObject {
+    #image;
+    constructor(a,b,image) {
+        super(a,b,0,0);
+        this.#image = image;
+    }
+
+    get image() {
+        return this.#image;
+    }
+
+    draw() {
+        Drawing.image(this.image, this.x, this.y);
+    }
+}
+
+class AnchoredImage extends Image {
+    #uvx;
+    #uvy;
+    constructor(a,b,uvx,uvy,c) {
+        super(a,b,c);
+        this.#uvx = uvx;
+        this.#uvy = uvy;
+    }
+
+    draw() {
+        Drawing.image_anchored(this.image, this.x, this.y, this.#uvx, this.#uvy);
+    }
+}
+
 class ImageButton extends Button {
     #image;
     constructor(a,b,image,callback) {
         super(a,b,0,0,callback);
         this.#image = image;
-        let im = images[image];
     }
 
     get image() {
@@ -86,10 +115,10 @@ class AnchoredImageButton extends ImageButton {
     }
 
     collide_AABB(ptX, ptY) {
-        return ptX > this.x - (this.width * this.#anchorX * 1.05) && 
-            ptX < this.x+this.width - (this.width * this.#anchorX * 1.05) && 
-            ptY > this.y - (this.height * this.#anchorY * 1.05) &&
-            ptY < this.y+this.height - (this.height * this.#anchorY * 1.05);
+        return ptX > this.x - (this.width * this.#anchorX * 1) && 
+            ptX < this.x+this.width - (this.width * this.#anchorX * 1) && 
+            ptY > this.y - (this.height * this.#anchorY * 1) &&
+            ptY < this.y+this.height - (this.height * this.#anchorY * 1);
     }
 
     debug_rect() {

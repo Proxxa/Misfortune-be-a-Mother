@@ -9,9 +9,12 @@ function preload() {
     require("game/screen.js")
     require("game/screen_object.js")
     require("game/screen_classes.js")
+    console.log("Preloader")
     Assets.setup(loadImage);
     Assets.loadImage('assets/ui/logo.png', 'logo');
     Assets.loadImage('assets/ui/play_button.png', 'play_button');
+    Assets.loadImage('assets/ui/spin_button.png', 'spin_button');
+    Assets.loadImage('assets/ui/spin_board.png', 'spin_board');
 }
 
 function setup() {
@@ -19,7 +22,9 @@ function setup() {
     aspect = windowWidth / windowHeight;
     background(0);
     new MainMenu();
-    ScreenManager.set_screen("main_menu")
+    new GameMenu();
+    console.log(screens);
+    ScreenManager.set_screen("main_menu");
 }
 
 
