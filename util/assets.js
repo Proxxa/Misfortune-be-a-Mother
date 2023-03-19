@@ -1,6 +1,6 @@
 const images = {};
 
-let _loadImage;
+// let _loadImage;
 
 /**
  * A collection of asset loaders.
@@ -20,7 +20,7 @@ const Assets = {
      * @param {String} id The id to store the image with
      */
     loadImage: function(path, id) {
-        images[id] = _loadImage(path);
+        images[id] = loadImage(path);
     },
 
     /**
@@ -30,9 +30,13 @@ const Assets = {
         for (const id of [
             "logo", "play_button", "spin_board", "spin_button"
         ]) {
-            images[id] = _loadImage(`./assets/${id}.png`);
+            images[id] = loadImage(`./assets/${id}.png`);
         }
+    },
+
+    getImage: function(id) {
+        return images[id];
     }
-}
+};
 
 Object.freeze(Assets);

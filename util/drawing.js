@@ -14,11 +14,11 @@ const Drawing = {
      */
     image: function(image, x, y, w, h) {
         let im = images[image];
-        _image(im, x, y, w ?? im.width, h ?? im.height)
+        _image(im, x, y, w ?? im.width, h ?? im.height);
     },
 
     image_anchored: function(image, x, y, uvx, uvy, w, h) {
-        let im = images[image]
+        let im = images[image];
         _image(im, x - (im.width * uvx * 1), y - (im.height * uvy * 1), w ?? im.width, h ?? im.height);
     }
 };

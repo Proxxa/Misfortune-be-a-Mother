@@ -23,9 +23,9 @@ class ScreenObject {
     }
 
     get x() {return this.#x;}
-    set x(_x) {return this.#x = x;}
+    set x(_x) {this.#x = x;}
     get y() {return this.#y;}
-    set y(_y) {return this.#y = _y;}
+    set y(_y) {this.#y = _y;}
     get width() {return this.#width;}
     get height() {return this.#height;}
 }
@@ -42,7 +42,7 @@ class Button extends ScreenObject {
     }
 }
 
-class Image extends ScreenObject {
+class ImageObject extends ScreenObject {
     #image;
     constructor(a,b,image) {
         super(a,b,0,0);
@@ -58,7 +58,7 @@ class Image extends ScreenObject {
     }
 }
 
-class AnchoredImage extends Image {
+class AnchoredImage extends ImageObject {
     #uvx;
     #uvy;
     constructor(a,b,uvx,uvy,c) {
@@ -96,7 +96,7 @@ class ImageButton extends Button {
     }
 
     draw() {
-        Drawing.image(this.image, this.x, this.y)
+        Drawing.image(this.image, this.x, this.y);
     }
 }
 
@@ -117,15 +117,16 @@ class AnchoredImageButton extends ImageButton {
     }
 
     draw() {
-        Drawing.image_anchored(this.image, this.x, this.y, this.#anchorX, this.#anchorY)
+        Drawing.image_anchored(this.image, this.x, this.y, this.#anchorX, this.#anchorY);
     }
 }
 
 class MainMenuLogo extends ScreenObject {
     constructor() {
-        super(0,0,0,0)
+        super(0,0,0,0);
     }
     draw() {
-        Drawing.image_anchored('logo', windowWidth, 0, 1, 0);
+        Drawing.image_anchored("logo", windowWidth, 0, 1, 0);
     }
 }
+

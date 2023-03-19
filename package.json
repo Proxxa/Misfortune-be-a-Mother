@@ -1,0 +1,22 @@
+{
+  "name": "mbam",
+  "version": "0.0.0",
+  "description": "A webgame version of Luck be a Landlord",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proxxa/Misfortune-be-a-Mother.git"
+  },
+  "author": "Proxxa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Proxxa/Misfortune-be-a-Mother/issues"
+  },
+  "homepage": "https://github.com/Proxxa/Misfortune-be-a-Mother#readme",
+  "devDependencies": {
+    "eslint": "^8.36.0"
+  }
+}

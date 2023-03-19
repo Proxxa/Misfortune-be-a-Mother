@@ -1,5 +1,5 @@
 html {
-    background-color: blue;
+    background-color: black;
     overflow: hidden;
 }
 
@@ -7,4 +7,12 @@ canvas {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+h1 {
+    color: gray;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }

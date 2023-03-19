@@ -1,7 +1,7 @@
 let screens = {};
-let screen;
+let current_screen;
 
-class Screen {
+class GameScreen {
     #screenObjects = [];
     debug_mode = false;
     #id;
@@ -22,7 +22,7 @@ class Screen {
 
     attempt_click() {
         for (const o of this.#screenObjects) {
-            if (o.collide_AABB(mouseX, mouseY)) o.on_click()
+            if (o.collide_AABB(mouseX, mouseY)) o.on_click();
         }
     }
 
@@ -33,6 +33,6 @@ class Screen {
 
 class ScreenManager {
     static set_screen(s) {
-        screen=screens[s];
+        current_screen=screens[s];
     }
 }

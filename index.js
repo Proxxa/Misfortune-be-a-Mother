@@ -2,14 +2,15 @@ const require = function(path) {
     const element = document.createElement("script");
     element.src = path;
     document.head.append(element);
-}
+};
 
 function preload() {
-    require("util/drawing.js")
-    require("game/screen.js")
-    require("game/screen_object.js")
-    require("game/screen_classes.js")
-    console.log("Preloader")
+    require("util/drawing.js");
+    require("ui/screen.js");
+    require("ui/screen_object.js");
+    require("ui/screen_classes.js");
+    require("game/game.js");
+    require("game/symbol.js");
     Assets.setup(loadImage);
     Assets.loadAll();
 }
@@ -20,14 +21,13 @@ function setup() {
     background(0);
     new MainMenu();
     new GameMenu();
-    console.log(screens);
     ScreenManager.set_screen("main_menu");
 }
 
 
 function draw() {
     background(0);
-    screen.draw();
+    current_screen.draw();
 }
 
 function windowResized() {
@@ -37,9 +37,9 @@ function windowResized() {
     for (const s of values) {
         new s.constructor();
     }
-    ScreenManager.set_screen(screen.id);
+    ScreenManager.set_screen(current_screen.id);
 }
 
 function mouseClicked() {
-    screen.attempt_click();
+    current_screen.attempt_click();
 }
