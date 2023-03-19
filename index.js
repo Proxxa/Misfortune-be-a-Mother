@@ -33,7 +33,6 @@ function windowResized() {
     aspect = windowWidth / windowHeight;
     let values = Object.values(screens);
     for (const s of values) {
-        console.log(s);
         new s.constructor();
     }
     ScreenManager.set_screen(screen.id);
