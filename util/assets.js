@@ -1,5 +1,5 @@
 const images = {};
-
+const fonts = {};
 // let _loadImage;
 
 /**
@@ -24,7 +24,16 @@ const Assets = {
     },
 
     /**
-     * Loads a set of in-built images
+     * Loads a font file
+     * @param {String} path The path to the font
+     * @param {String} id The id to store the font with
+     */
+    loadFont: function(path, id) {
+        fonts[id] = loadFont(path);
+    },
+
+    /**
+     * Loads all assets
      */
     loadAll: function() {
         for (const id of [
@@ -32,6 +41,7 @@ const Assets = {
         ]) {
             images[id] = loadImage(`./assets/${id}.png`);
         }
+        this.loadFont("./assets/04b03.ttf", "bit");
     },
 
     getImage: function(id) {

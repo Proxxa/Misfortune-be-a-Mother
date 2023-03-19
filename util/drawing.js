@@ -12,14 +12,23 @@ const Drawing = {
      * @param {Number} w The width of the image
      * @param {Number} h The height of the image
      */
-    image: function(image, x, y, w, h) {
+    image: function (image, x, y, w, h) {
         let im = images[image];
         _image(im, x, y, w ?? im.width, h ?? im.height);
     },
 
-    image_anchored: function(image, x, y, uvx, uvy, w, h) {
+    image_anchored: function (image, x, y, uvx, uvy, w, h) {
         let im = images[image];
         _image(im, x - (im.width * uvx * 1), y - (im.height * uvy * 1), w ?? im.width, h ?? im.height);
+    },
+
+    text: function (str, font, fontsz, color, strokeColor, strokewt, x, y, w, h) {
+        textSize(fontsz);
+        textFont(fonts[font]);
+        fill(color);
+        stroke(strokeColor);
+        strokeWeight(strokewt);
+        text(str, x, y, w, h);
     }
 };
 

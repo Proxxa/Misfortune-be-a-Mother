@@ -121,12 +121,41 @@ class AnchoredImageButton extends ImageButton {
     }
 }
 
-class MainMenuLogo extends ScreenObject {
-    constructor() {
-        super(0,0,0,0);
+class ScreenText extends ScreenObject {
+    #text;
+    #font;
+    #fontsize;
+    #color;
+    #stroke;
+    #strokewt;
+    /**
+     * 
+     * @param {Number} x X position of text box
+     * @param {Number} y Y position of text box
+     * @param {Number} width Width of text box
+     * @param {Number} height Height of text box
+     * @param {String|Function} text The text to be displayed
+     * @param {Number} fontsize The size of the text
+     * @param {*} color The color of the text
+     * @param {*} stroke The color of the text outline
+     * @param {Number} strokewt The weight of the text outline
+     */
+    constructor(x,y,width,height,text,font,fontsize,color,stroke=0,strokewt=0) {
+        super(x,y,width,height);
+        this.#text=text;
+        this.#font=font;
+        this.#fontsize=fontsize;
+        this.#color=color;
+        this.#stroke=stroke;
+        this.#strokewt=strokewt;
     }
+    get text() {return this.#text;}
+    get font() {return this.#font;}
+    get fontsize() {return this.#fontsize;}
+    get color() {return this.#color;}
+    get stroke() {return this.#stroke;}
+    get strokewt() {return this.#strokewt;}
     draw() {
-        Drawing.image_anchored("logo", windowWidth, 0, 1, 0);
+        Drawing.text(typeof this.#text == "function" ? this.#text() : this.#text, this.#font, this.#fontsize, this.#color, this.#stroke, this.#strokewt, this.x, this.y, this.width, this.height);
     }
 }
-

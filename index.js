@@ -21,6 +21,7 @@ function setup() {
     background(0);
     new MainMenu();
     new GameMenu();
+    Game.create();
     ScreenManager.set_screen("main_menu");
 }
 

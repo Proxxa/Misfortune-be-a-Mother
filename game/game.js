@@ -17,6 +17,10 @@ class Game {
         this.#symbols[0] = new Cat();
     }
 
+    static get money() {
+        return this.#instance.#coins;
+    } 
+
     static draw() {
         let board_image = Assets.getImage("spin_board");
         for (item in this.#instance.#board) {
