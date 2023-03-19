@@ -11,10 +11,7 @@ function preload() {
     require("game/screen_classes.js")
     console.log("Preloader")
     Assets.setup(loadImage);
-    Assets.loadImage('assets/ui/logo.png', 'logo');
-    Assets.loadImage('assets/ui/play_button.png', 'play_button');
-    Assets.loadImage('assets/ui/spin_button.png', 'spin_button');
-    Assets.loadImage('assets/ui/spin_board.png', 'spin_board');
+    Assets.loadAll();
 }
 
 function setup() {

@@ -21,6 +21,17 @@ const Assets = {
      */
     loadImage: function(path, id) {
         images[id] = _loadImage(path);
+    },
+
+    /**
+     * Loads a set of in-built images
+     */
+    loadAll: function() {
+        for (const id of [
+            "logo", "play_button", "spin_board", "spin_button"
+        ]) {
+            images[id] = _loadImage(`./assets/${id}.png`);
+        }
     }
 }
 
