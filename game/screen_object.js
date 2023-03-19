@@ -28,11 +28,6 @@ class ScreenObject {
     set y(_y) {return this.#y = _y;}
     get width() {return this.#width;}
     get height() {return this.#height;}
-
-    debug_rect() {
-        fill("red");
-        rect(this.x, this.y, this.width, this.height);
-    }
 }
 
 class Button extends ScreenObject {
@@ -119,12 +114,6 @@ class AnchoredImageButton extends ImageButton {
             ptX < this.x+this.width - (this.width * this.#anchorX * 1) && 
             ptY > this.y - (this.height * this.#anchorY * 1) &&
             ptY < this.y+this.height - (this.height * this.#anchorY * 1);
-    }
-
-    debug_rect() {
-        fill("red");
-        rect(this.x - (this.width * this.#anchorX * 1.01),
-        this.y - (this.height * this.#anchorY * 1.01), this.width, this.height);
     }
 
     draw() {

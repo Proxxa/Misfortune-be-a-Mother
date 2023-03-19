@@ -17,7 +17,6 @@ class Screen {
     draw() {
         for (const o of this.#screenObjects) {
             o.draw();
-            if (this.debug_mode) o.debug_rect();
         }
     }
 
